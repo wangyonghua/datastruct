@@ -21,9 +21,23 @@ public class Link {
 
     public void delNode(String data) {
         Node p = head;
-        while (p!=null) {
+        if (p.next == null)
+            return;
+        while (p.next != null) {
+            if (p.next.name.equals(data)) {
+                p.next = p.next.next;
+                break;
+            } else {
+                p = p.next;
+            }
+        }
+    }
+
+    public void display() {
+        Node p = head;
+        while (p.next != null) {
+            System.out.println(p.name + ">>>>>");
             p = p.next;
         }
-
     }
 }
