@@ -3,10 +3,10 @@ package com.struct.base.T1;
 /**
  * Created by wangyonghua on 2017/9/14.
  */
-public class Link {
+public class CLink {
     Node head;
 
-    public Link() {
+    public CLink() {
         head = new Node();
         head.next = null;
     }

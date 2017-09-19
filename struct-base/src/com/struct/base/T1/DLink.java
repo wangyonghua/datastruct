@@ -3,28 +3,32 @@ package com.struct.base.T1;
 /**
  * Created by wangyonghua on 2017/9/14.
  */
-public class Link {
-    Node head;
+public class DLink {
+    DNode head;
 
-    public Link() {
-        head = new Node();
+    public DLink() {
+        head = new DNode();
         head.next = null;
+        head.prior = null;
     }
 
     public void add(String data) {
-        Node p = head;
+        DNode p = head;
         while (p.next != null) {
             p = p.next;
         }
-        p.next = new Node(data);
+        DNode addNode = new DNode(data);
+        p.next = addNode;
+        addNode.prior = p;
     }
 
     public void delNode(String data) {
-        Node p = head;
+        DNode p = head;
         if (p.next == null)
             return;
         while (p.next != null) {
             if (p.next.name.equals(data)) {
+                p.next.next.prior = p.next.prior;
                 p.next = p.next.next;
                 break;
             } else {
@@ -34,7 +38,7 @@ public class Link {
     }
 
     public void display() {
-        Node p = head;
+        DNode p = head;
         while (p.next != null) {
             System.out.println(p.next.name + ">>>>>");
             p = p.next;
@@ -42,7 +46,7 @@ public class Link {
     }
 
     public void find(String data) {
-        Node p = head;
+        DNode p = head;
         while (p.next != null) {
             if (p.next.name.equals(data)) {
                 System.out.println(p.next.name);
@@ -54,11 +58,12 @@ public class Link {
     }
 
     public void insert(String param, String data) {
-        Node p = head;
+        DNode p = head;
         while (p.next != null) {
             if (p.next.name.equals(param)) {
-                Node t = p.next;
-                Node insertNode = new Node(data);
+                DNode t = p.next;
+                DNode insertNode = new DNode(data);
+                insertNode.prior = t.prior;
                 insertNode.next = t.next;
                 t.next = insertNode;
                 break;
@@ -70,7 +75,7 @@ public class Link {
 
     public int size() {
         int n = 0;
-        Node p = head;
+        DNode p = head;
         while (p.next != null) {
             p = p.next;
             n++;
