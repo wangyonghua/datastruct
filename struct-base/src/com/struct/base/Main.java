@@ -52,6 +52,7 @@ public class Main {
         queryArray.inQueue("9");
         queryArray.inQueue("10");
         queryArray.inQueue("11");
+        queryArray.display();
 
         queryArray.outQueue();
         queryArray.outQueue();
