@@ -5,11 +5,11 @@ package com.struct.base.T4;
  * 链表模拟二叉树
  */
 public class Node {
-    Object data;
+    int data;
     Node leftChild;
     Node rightChild;
 
-    public Node(Object data) {
+    public Node(int data) {
         this.data = data;
         this.leftChild = null;
         this.rightChild = null;
